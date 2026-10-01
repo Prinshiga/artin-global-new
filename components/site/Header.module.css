@@ -1,0 +1,154 @@
+.header {
+  position: relative;
+  z-index: 20;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-white);
+}
+
+.inner {
+  display: grid;
+  min-height: 5.25rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.logo {
+  display: block;
+  width: 7.25rem;
+  height: auto;
+}
+
+.desktopNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+.navigationLink,
+.mobileNavigationLink {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  font-weight: 550;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.navigationLink {
+  position: relative;
+  padding-block: 0.6rem;
+}
+
+.navigationLink:hover,
+.mobileNavigationLink:hover {
+  color: var(--color-ink);
+}
+
+.activeLink {
+  color: var(--color-accent-strong);
+}
+
+.navigationLink.activeLink {
+  font-weight: 650;
+}
+
+.desktopCta {
+  white-space: nowrap;
+}
+
+.menuButton,
+.mobileNavigation {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .inner {
+    min-height: 4.75rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+  }
+
+  .logo {
+    width: 6.75rem;
+  }
+
+  .desktopNavigation,
+  .desktopCta {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-white);
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .menuButton:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-strong);
+  }
+
+  .mobileNavigation {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: flex;
+    max-height: 0;
+    flex-direction: column;
+    gap: 0.25rem;
+    overflow: hidden;
+    border-bottom: 1px solid transparent;
+    background: var(--color-white);
+    opacity: 0;
+    padding-inline: var(--page-gutter);
+    transition:
+      max-height 180ms ease,
+      opacity 150ms ease,
+      padding-block 180ms ease,
+      border-color 150ms ease;
+  }
+
+  .mobileNavigationOpen {
+    max-height: 24rem;
+    border-color: var(--color-border);
+    opacity: 1;
+    padding-block: 0.75rem 1.25rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .mobileNavigationLink {
+    border-radius: var(--radius-control);
+    padding: 0.75rem 0.625rem;
+  }
+
+  .mobileNavigationLink.activeLink {
+    background: var(--color-purple-soft);
+  }
+
+  .mobileCta {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigationLink,
+  .mobileNavigationLink,
+  .mobileNavigation {
+    transition: none;
+  }
+}
