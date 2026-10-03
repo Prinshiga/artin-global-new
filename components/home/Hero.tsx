@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   motion,
@@ -48,8 +49,8 @@ function HeroAction({
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / bounds.width - 0.5;
     const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    tiltXTarget.set(-y * 4.5);
-    tiltYTarget.set(x * 4.5);
+    tiltXTarget.set(-y * 2.4);
+    tiltYTarget.set(x * 2.4);
   }
 
   function resetTilt() {
@@ -180,12 +181,11 @@ export default function Hero() {
           >
             <HeroAction
               className="button button-primary"
-              href="/software"
+              href="#solutions"
               pointerEffectsEnabled={pointerEffectsEnabled}
             >
               Explore our solutions
             </HeroAction>
-            {/* Replace this placeholder with the confirmed contact destination when available. */}
             <HeroAction
               className={`button button-secondary ${styles.secondaryAction}`}
               href="#contact"
@@ -198,18 +198,19 @@ export default function Hero() {
 
         <motion.div
           className={styles.visual}
-          aria-hidden="true"
           initial={entrance.initial}
           animate={entrance.animate}
           transition={{ ...enterTransition(0.1), duration: shouldReduceMotion ? 0 : 0.65 }}
         >
           <motion.div className={styles.visualLayer} style={{ x: visualX, y: visualY }}>
-            <div className={styles.orbit} />
-            <div className={styles.orbitInner} />
-            <div className={styles.risingForm} />
-            <div className={styles.sphere} />
-            <div className={styles.sphereAccent} />
-            <div className={styles.baseForm} />
+            <Image
+              src="/images/home/home-hero-office.png"
+              alt="People collaborating around a laptop in a technology workspace"
+              fill
+              priority
+              sizes="(max-width: 680px) 90vw, (max-width: 1000px) 48vw, 560px"
+              className={styles.heroImage}
+            />
           </motion.div>
         </motion.div>
       </Container>

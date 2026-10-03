@@ -8,8 +8,9 @@
   --color-muted: #626477;
   --color-accent: #5b20e8;
   --color-accent-strong: #4312b8;
-  --color-purple-soft: #f4f0ff;
-  --color-surface: #f7f8fc;
+  --color-purple-soft: #f3eeff;
+  --color-purple-hover: #e9deff;
+  --color-surface: #faf9fd;
   --color-border: #e6e7ef;
   --color-white: #ffffff;
 
@@ -37,6 +38,7 @@
   --color-accent: var(--color-accent);
   --color-accent-strong: var(--color-accent-strong);
   --color-purple-soft: var(--color-purple-soft);
+  --color-purple-hover: var(--color-purple-hover);
   --color-surface: var(--color-surface);
   --color-border: var(--color-border);
   --font-sans: var(--font-inter), Arial, Helvetica, sans-serif;
@@ -113,6 +115,8 @@ body {
 
 /* Shared button styles */
 .button {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   min-height: 2.875rem;
   align-items: center;
@@ -141,8 +145,11 @@ body {
 }
 
 .button-primary:hover {
-  background: var(--color-accent-strong);
+  border-color: var(--color-purple-hover);
+  background: var(--color-purple-soft);
+  color: var(--color-accent-strong);
   transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgb(91 32 232 / 10%);
 }
 
 .button-secondary {
@@ -152,9 +159,11 @@ body {
 }
 
 .button-secondary:hover {
-  border-color: var(--color-accent);
+  border-color: var(--color-purple-hover);
   background: var(--color-purple-soft);
   color: var(--color-accent-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgb(91 32 232 / 8%);
 }
 
 .button:focus-visible {

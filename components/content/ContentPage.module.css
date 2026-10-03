@@ -1,0 +1,164 @@
+.hero {
+  overflow: hidden;
+  background: var(--color-white);
+  padding-block: clamp(3.75rem, 7.5vw, 6.25rem);
+}
+
+.editorialGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+}
+
+.heroGrid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+.copy { max-width: 40rem; }
+.heroHeading,
+.sectionHeading {
+  margin: 0;
+  color: var(--color-ink);
+  font-weight: 630;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.heroHeading { font-size: clamp(2.75rem, 5.15vw, 4.25rem); }
+.heroHeading span { color: var(--color-accent); }
+.sectionHeading { font-size: clamp(2rem, 3.7vw, 3rem); }
+.bodyCopy {
+  max-width: 39rem;
+  margin: 1.25rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.8;
+}
+
+.heroVisual,
+.sectionVisual,
+.journeyVisual { width: 100%; min-width: 0; }
+.visualFrame {
+  position: relative;
+  display: grid;
+  width: 100%;
+  place-items: center;
+  isolation: isolate;
+}
+.heroVisual .visualFrame {
+  max-width: 39rem;
+  aspect-ratio: 1.27 / 1;
+  justify-self: end;
+}
+.sectionVisual .visualFrame {
+  max-width: 34rem;
+  aspect-ratio: 1.49 / 1;
+  justify-self: start;
+}
+.journeyVisual .visualFrame {
+  max-width: 42rem;
+  aspect-ratio: 1.95 / 1;
+  justify-self: end;
+}
+.heroArt,
+.sectionArt,
+.journeyArt { display: block; width: 100%; height: auto; overflow: visible; }
+.heroArt { max-height: 100%; }
+.sectionArt { max-height: 100%; }
+.journeyArt { max-height: 100%; }
+.svgLabel {
+  fill: #4e4b5f;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .045em;
+}
+
+.sections { background: var(--color-white); }
+.section {
+  padding-block: clamp(3.75rem, 7.5vw, 6rem);
+}
+.section + .section { border-top: 1px solid var(--color-border); }
+.reverseOnDesktop .sectionVisual { order: 1; }
+.reverseOnDesktop .copy { order: 2; }
+
+.contentConnector,
+.collabLine { stroke: #B9A6E7; stroke-width: 2; stroke-dasharray: 5 8; stroke-linecap: round; }
+.pathCustom,
+.pathCo,
+.pathFlexible { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 9 8; }
+.pathCustom { stroke: #A48AE2; }
+.pathCo { stroke: #83B9A4; }
+.pathFlexible { stroke: #D3A36D; }
+.pipeline { stroke: #DED6ED; stroke-width: 5; stroke-linecap: round; }
+.pipelineGlow {
+  stroke: #8D6AE8;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 560;
+  stroke-dashoffset: 560;
+}
+
+.visualFrame[data-in-view="true"] .contentCardFloat { animation: float-card 7.4s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .mediaFloat { animation: float-media 8s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .contentNodeA { animation: node-float 6s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .contentNodeB { animation: node-float-alt 7s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .contentNodeC { animation: node-float 7.8s ease-in-out infinite reverse; }
+.visualFrame[data-in-view="true"] .pathCustom { animation: path-glow 5.5s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .pathCo { animation: path-glow 6.5s ease-in-out infinite .5s; }
+.visualFrame[data-in-view="true"] .pathFlexible { animation: path-glow 6s ease-in-out infinite 1s; }
+.visualFrame[data-in-view="true"] .hubPulse { animation: hub-pulse 5.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.visualFrame[data-in-view="true"] .optionCardCustom { animation: float-card 7s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .optionCardCo { animation: float-media 7.5s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .optionCardFlexible { animation: float-card 8s ease-in-out infinite reverse; }
+.visualFrame[data-in-view="true"] .pipelineGlow { animation: pipeline-draw 2.6s ease-out .25s forwards; }
+.visualFrame[data-in-view="true"] .journeyNodeOne { animation: node-appear .5s ease-out .15s both; }
+.visualFrame[data-in-view="true"] .journeyNodeTwo { animation: node-appear .5s ease-out .45s both; }
+.visualFrame[data-in-view="true"] .journeyNodeThree { animation: node-appear .5s ease-out .75s both; }
+.visualFrame[data-in-view="true"] .journeyNodeFour { animation: node-appear .5s ease-out 1.05s both; }
+.visualFrame[data-in-view="true"] .journeyNodeFive { animation: node-appear .5s ease-out 1.35s both; }
+.visualFrame[data-in-view="true"] .pipelineDot { animation: dot-travel 4.5s ease-in-out 2.7s infinite; }
+.visualFrame[data-in-view="true"] .boardFloat { animation: float-card 7.5s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .collabLine { animation: line-appear 1.8s ease-out .2s both; }
+
+@keyframes float-card { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes float-media { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+@keyframes node-float { 0%, 100% { transform: translate(0); } 50% { transform: translate(3px, -3px); } }
+@keyframes node-float-alt { 0%, 100% { transform: translate(0); } 50% { transform: translate(-3px, 2px); } }
+@keyframes path-glow { 0%, 100% { opacity: .66; } 50% { opacity: 1; } }
+@keyframes hub-pulse { 0%, 100% { transform: scale(1); opacity: .92; } 50% { transform: scale(1.025); opacity: 1; } }
+@keyframes pipeline-draw { to { stroke-dashoffset: 0; } }
+@keyframes node-appear { from { opacity: .35; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes dot-travel { 0% { transform: translateX(0); opacity: 0; } 8% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateX(530px); opacity: 0; } }
+@keyframes line-appear { from { stroke-dashoffset: 180; opacity: .4; } to { stroke-dashoffset: 0; opacity: 1; } }
+
+@media (max-width: 900px) {
+  .editorialGrid,
+  .heroGrid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .heroHeading { font-size: clamp(2.5rem, 6.3vw, 3.5rem); }
+  .sectionHeading { font-size: clamp(2rem, 5vw, 2.7rem); }
+  .heroVisual .visualFrame,
+  .sectionVisual .visualFrame,
+  .journeyVisual .visualFrame { max-width: 42rem; justify-self: center; }
+  .heroVisual .visualFrame { aspect-ratio: 1.55 / 1; }
+  .sectionVisual .visualFrame { aspect-ratio: 1.7 / 1; }
+  .journeyVisual .visualFrame { aspect-ratio: 1.95 / 1; }
+  .reverseOnDesktop .copy { order: 1; }
+  .reverseOnDesktop .sectionVisual { order: 2; }
+  .section { padding-block: 3.5rem; }
+}
+
+@media (max-width: 560px) {
+  .hero { padding-block: 3rem 2.75rem; }
+  .heroHeading { font-size: clamp(2.4rem, 10vw, 3rem); }
+  .sectionHeading { font-size: clamp(1.85rem, 8vw, 2.4rem); }
+  .bodyCopy { margin-top: 1rem; font-size: 1rem; line-height: 1.75; }
+  .heroVisual .visualFrame { aspect-ratio: 1.2 / 1; }
+  .sectionVisual .visualFrame { aspect-ratio: 1.45 / 1; }
+  .journeyVisual .visualFrame { aspect-ratio: 1.42 / 1; }
+  .journeyArt { width: 100%; max-width: none; }
+  .section { padding-block: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visualFrame[data-in-view="true"] * { animation: none !important; }
+}

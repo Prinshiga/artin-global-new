@@ -122,16 +122,14 @@
   position: relative;
   width: 100%;
   max-width: 35rem;
-  aspect-ratio: 1.08 / 1;
+  aspect-ratio: 1.3 / 1;
   justify-self: end;
   overflow: hidden;
   isolation: isolate;
-  border: 1px solid rgb(91 32 232 / 9%);
-  border-radius: 48% 52% 47% 53% / 51% 46% 54% 49%;
-  background:
-    radial-gradient(ellipse at 69% 27%, rgb(163 180 255 / 35%), transparent 33%),
-    radial-gradient(ellipse at 34% 72%, rgb(174 149 255 / 27%), transparent 38%),
-    linear-gradient(145deg, #fbfaff 4%, #f5f2ff 53%, #f2f6ff 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  box-shadow: 0 18px 48px rgb(17 17 31 / 9%);
 }
 
 .visualLayer {
@@ -140,100 +138,24 @@
   will-change: transform;
 }
 
-.visual::before,
+.heroImage {
+  object-fit: cover;
+  object-position: 61% center;
+  transition: transform 500ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .visual:hover .heroImage {
+    transform: scale(1.015);
+  }
+}
+
 .visual::after {
   position: absolute;
-  z-index: -1;
-  border: 1px solid rgb(91 32 232 / 12%);
-  border-radius: 50%;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(255 255 255 / 16%), transparent 45%);
   content: "";
   pointer-events: none;
-}
-
-.visual::before {
-  inset: 9% 7%;
-  transform: rotate(-22deg) scaleY(0.78);
-}
-
-.visual::after {
-  inset: 20% 14%;
-  border-color: rgb(73 117 225 / 13%);
-  transform: rotate(28deg) scaleY(0.8);
-}
-
-.orbit,
-.orbitInner {
-  position: absolute;
-  inset: 15% 12%;
-  border: 1px solid rgb(91 32 232 / 10%);
-  border-radius: 50%;
-  transform: rotate(-34deg) scaleY(0.74);
-}
-
-.orbitInner {
-  inset: 24% 20%;
-  border-color: rgb(73 117 225 / 12%);
-  transform: rotate(42deg) scaleY(0.72);
-}
-
-.risingForm {
-  position: absolute;
-  top: 21%;
-  left: 24%;
-  width: 52%;
-  height: 57%;
-  border: 1px solid rgb(255 255 255 / 70%);
-  border-radius: 48% 52% 23% 24% / 47% 48% 20% 22%;
-  background: linear-gradient(148deg, rgb(255 255 255 / 78%) 3%, rgb(219 211 255 / 62%) 42%, rgb(156 173 255 / 45%) 100%);
-  box-shadow: 0 24px 64px rgb(70 56 150 / 12%);
-  transform: rotate(-31deg) skewY(4deg);
-}
-
-.risingForm::before {
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: linear-gradient(145deg, rgb(255 255 255 / 72%), transparent 55%);
-  content: "";
-}
-
-.sphere {
-  position: absolute;
-  top: 23%;
-  right: 16%;
-  width: 26%;
-  aspect-ratio: 1;
-  border: 1px solid rgb(255 255 255 / 70%);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 31% 25%, rgb(255 255 255 / 95%) 0 3%, transparent 34%),
-    radial-gradient(circle at 37% 32%, #d8d0ff 0, #a99aef 37%, #7f91dd 72%, #b6c6f5 100%);
-  box-shadow: 0 16px 38px rgb(84 74 167 / 18%);
-}
-
-.sphereAccent {
-  position: absolute;
-  bottom: 23%;
-  left: 20%;
-  width: 12%;
-  aspect-ratio: 1;
-  border: 1px solid rgb(255 255 255 / 85%);
-  border-radius: 50%;
-  background: radial-gradient(circle at 34% 28%, #fff 0 3%, #d8d3ff 37%, #aaa9ee 100%);
-  box-shadow: 0 10px 24px rgb(84 74 167 / 13%);
-}
-
-.baseForm {
-  position: absolute;
-  right: 12%;
-  bottom: 17%;
-  width: 41%;
-  height: 11%;
-  border: 1px solid rgb(255 255 255 / 75%);
-  border-radius: 50%;
-  background: linear-gradient(100deg, #c9d7ff 0%, #c1b5f4 50%, #e7e0ff 100%);
-  box-shadow: 0 12px 30px rgb(70 56 150 / 12%);
-  transform: rotate(-18deg);
 }
 
 @media (max-width: 900px) {
@@ -258,6 +180,10 @@
 @media (max-width: 680px) {
   .ambientGlow {
     display: none;
+  }
+
+  .heroImage {
+    transition: none;
   }
 
   .hero {

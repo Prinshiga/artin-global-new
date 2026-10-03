@@ -1,0 +1,626 @@
+.reveal {
+  min-width: 0;
+}
+
+/* Shared image frame: understated so the supplied product visuals stay central. */
+.mediaSlot {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.landscape {
+  aspect-ratio: 1.3 / 1;
+  border-radius: var(--radius-panel);
+}
+
+.phone {
+  width: min(100%, 12rem);
+  aspect-ratio: 9 / 19;
+  border-color: #d7d8e1;
+  border-radius: 1.35rem;
+  background: #fff;
+  padding: 0.3rem;
+  box-shadow: 0 10px 28px rgb(17 17 31 / 8%);
+}
+
+.logo {
+  width: min(100%, 20rem);
+  aspect-ratio: 2.65 / 1;
+  border-style: dashed;
+  border-radius: var(--radius-control);
+  background: transparent;
+  box-shadow: none;
+}
+
+.mediaViewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.phone .mediaViewport {
+  inset: 0.3rem;
+  border-radius: 1.05rem;
+}
+
+.mediaImage {
+  object-position: center;
+}
+
+.mediaPlaceholder {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 550;
+  line-height: 1.45;
+  padding: 1rem;
+  text-align: center;
+}
+
+.placeholderIcon {
+  color: #8076a4;
+}
+
+.placeholderNote {
+  color: var(--color-muted);
+  font-size: 0.6875rem;
+  font-weight: 450;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* 1. Software hero */
+.softwareHero {
+  background: var(--color-white);
+  padding-block: clamp(3.75rem, 6vw, 5.5rem);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.heroCopy {
+  max-width: 35rem;
+}
+
+.heroEyebrow {
+  margin: 0 0 1rem;
+  color: var(--color-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.heroHeading {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(2.8rem, 5vw, 4.25rem);
+  font-weight: 630;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.heroHeading > span:not(.heroLead) {
+  color: var(--color-ink);
+}
+
+.heroHeading .heroLead {
+  margin-bottom: 0.25rem;
+  color: var(--color-ink);
+  font-size: 0.63em;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+.heroHeading .heroAccent {
+  color: var(--color-accent);
+}
+
+.heroMedia {
+  width: 100%;
+  justify-self: end;
+}
+
+.heroMedia .landscape {
+  aspect-ratio: 1.24 / 1;
+  box-shadow: 0 16px 40px rgb(17 17 31 / 9%);
+}
+
+/* 2. Light editorial introduction */
+.softwareIntro {
+  border-block: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding-block: clamp(3rem, 5.5vw, 4.75rem);
+}
+
+.introContainer {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 6rem);
+}
+
+.introHeadingWrap > :global(.eyebrow) {
+  margin: 0 0 0.75rem;
+}
+
+.introHeading {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 620;
+  letter-spacing: -0.045em;
+  line-height: 1.14;
+}
+
+.introBody {
+  max-width: 41rem;
+  border-left: 2px solid rgb(91 32 232 / 30%);
+  padding-left: clamp(1.25rem, 3vw, 2rem);
+}
+
+.introDescription {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.45vw, 1.125rem);
+  line-height: 1.8;
+}
+
+/* 3. SELVE product introduction */
+.selveSection,
+.conversationsSection {
+  background: var(--color-white);
+  padding-block: var(--space-section);
+}
+
+.selveLayout {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.selveIntro {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.38fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.selveIdentity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.selveIdentity > :global(.eyebrow) {
+  margin: 0;
+}
+
+.selveLogo {
+  display: block;
+  width: min(100%, 9rem);
+  height: auto;
+  object-fit: contain;
+}
+
+.splitLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 7rem);
+}
+
+.sectionCopy {
+  max-width: 35rem;
+}
+
+.sectionCopy > :global(.eyebrow) {
+  margin: 0 0 0.875rem;
+}
+
+.sectionHeading {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(2rem, 3.7vw, 3rem);
+  font-weight: 620;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.sectionDescription {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.35vw, 1.0625rem);
+  line-height: 1.75;
+}
+
+/* 4. Selvern Trust context */
+.trustSection {
+  border-block: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+}
+
+.trustLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.42fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 6rem);
+}
+
+.trustCopy {
+  max-width: 50rem;
+}
+
+.trustCopy > :global(.eyebrow) {
+  margin: 0 0 0.75rem;
+}
+
+.trustHeading {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 620;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.trustDescription {
+  max-width: 49rem;
+  margin: 0.875rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
+.trustLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--color-border);
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+}
+
+.partnershipArtwork {
+  display: block;
+  width: 100%;
+  max-width: 31rem;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 14px 28px rgb(17 17 31 / 7%));
+}
+
+.partnershipPath {
+  animation: partnership-flow 12s linear infinite;
+}
+
+.partnershipPulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: partnership-pulse 8s ease-in-out infinite;
+}
+
+.partnershipFloatOne,
+.partnershipFloatTwo,
+.partnershipFloatThree,
+.partnershipFloatFour {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: partnership-float 8s ease-in-out infinite;
+}
+
+.partnershipFloatTwo {
+  animation-delay: -2s;
+}
+
+.partnershipFloatThree {
+  animation-delay: -4s;
+}
+
+.partnershipFloatFour {
+  animation-delay: -6s;
+}
+
+@keyframes partnership-flow {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+
+@keyframes partnership-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.99);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.01);
+  }
+}
+
+@keyframes partnership-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* 5. AI Conversations editorial image and copy */
+.conversationsSection {
+  background: var(--color-white);
+}
+
+.conversationMedia {
+  width: 100%;
+}
+
+.conversationMedia .landscape {
+  aspect-ratio: 1.45 / 1;
+  border-radius: var(--radius-panel);
+  box-shadow: 0 12px 30px rgb(17 17 31 / 6%);
+}
+
+/* Connected SELVE learning journey and app experience */
+.learningExperience {
+  border-top: 1px solid var(--color-border);
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.learningIntro {
+  max-width: 43rem;
+}
+
+.learningIntro > :global(.eyebrow) {
+  margin: 0 0 0.75rem;
+}
+
+.learningIntro .sectionDescription {
+  margin-top: 0.875rem;
+}
+
+.journeyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.journeyItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.journeyNumber {
+  align-self: flex-start;
+  margin: 0 auto 0.75rem;
+  color: var(--color-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.journeyItem .phone {
+  width: min(100%, 12rem);
+}
+
+.journeyTitle {
+  margin: 1rem 0 0;
+  color: var(--color-ink);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.practiceNote {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 2rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--color-border);
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.practiceNote .eyebrow {
+  margin: 0 0 0.5rem;
+}
+
+.practiceHeading {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 620;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.practiceDescription {
+  max-width: 39rem;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .mediaSlot:hover {
+    transform: translateY(-2px);
+    border-color: rgb(91 32 232 / 24%);
+    box-shadow: 0 12px 26px rgb(17 17 31 / 8%);
+  }
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 2rem;
+  }
+
+  .heroHeading {
+    font-size: clamp(2.6rem, 5.4vw, 3.5rem);
+  }
+
+  .splitLayout,
+  .selveIntro {
+    gap: 2.5rem;
+  }
+
+  .trustLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(11rem, 0.4fr);
+    gap: 2rem;
+  }
+
+  .journeyGrid {
+    gap: 1.25rem;
+  }
+
+  .journeyItem .phone {
+    width: min(100%, 10rem);
+  }
+
+}
+
+@media (max-width: 680px) {
+  .softwareHero {
+    padding-block: 3.5rem 3.75rem;
+  }
+
+  .heroGrid,
+  .introContainer,
+  .splitLayout,
+  .selveIntro,
+  .trustLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroGrid {
+    gap: 2rem;
+  }
+
+  .heroHeading {
+    font-size: clamp(2.6rem, 11vw, 3.4rem);
+  }
+
+  .heroMedia {
+    max-width: none;
+  }
+
+  .introContainer {
+    gap: 1rem;
+  }
+
+  .introDescription {
+    padding-left: 0;
+  }
+
+  .introBody {
+    padding-left: 1rem;
+  }
+
+  .splitLayout {
+    gap: 2rem;
+  }
+
+  .selveLayout {
+    gap: 2rem;
+  }
+
+  .selveIntro {
+    gap: 1.25rem;
+  }
+
+  .selveIdentity {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .selveLogo {
+    width: 5.5rem;
+  }
+
+  .trustLayout {
+    gap: 1.5rem;
+  }
+
+  .trustLogo {
+    justify-content: flex-start;
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+    padding: 1rem 0 0;
+  }
+
+  .partnershipArtwork {
+    max-width: 32rem;
+  }
+
+  .journeyGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .journeyNumber {
+    width: min(100%, 13rem);
+  }
+
+  .journeyItem .phone {
+    width: min(100%, 13rem);
+  }
+
+  .practiceNote {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .mediaSlot {
+    transition: none;
+  }
+
+  .partnershipPath,
+  .partnershipPulse,
+  .partnershipFloatOne,
+  .partnershipFloatTwo,
+  .partnershipFloatThree,
+  .partnershipFloatFour {
+    animation: none;
+  }
+}

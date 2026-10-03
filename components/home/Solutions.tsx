@@ -26,7 +26,7 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <section className={styles.section} aria-labelledby="solutions-heading">
+    <section id="solutions" className={styles.section} aria-labelledby="solutions-heading">
       <Container>
         <div className={styles.intro}>
           <p className="eyebrow">Our solutions</p>
@@ -40,17 +40,17 @@ export default function Solutions() {
 
         <div className={styles.cards}>
           {solutions.map(({ title, description, href, Icon }) => (
-            <article className={styles.card} key={title}>
+            <Link className={styles.card} href={href} key={title}>
               <div className={styles.iconWrap} aria-hidden="true">
                 <Icon className={styles.icon} size={22} strokeWidth={1.8} />
               </div>
               <h3 className={styles.cardTitle}>{title}</h3>
               <p className={styles.cardDescription}>{description}</p>
-              <Link className={styles.cardLink} href={href}>
+              <span className={styles.cardLink}>
                 <span>Explore {title}</span>
                 <ArrowRight className={styles.arrow} size={17} aria-hidden="true" />
-              </Link>
-            </article>
+              </span>
+            </Link>
           ))}
         </div>
       </Container>

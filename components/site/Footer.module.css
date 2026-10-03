@@ -1,0 +1,121 @@
+.footer {
+  overflow: hidden;
+  border-top: 1px solid rgb(91 32 232 / 8%);
+  background: var(--color-purple-soft);
+  color: var(--color-ink);
+}
+
+.contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(3.25rem, 6vw, 4.75rem) clamp(2.75rem, 5vw, 3.5rem);
+}
+
+.contact::before,
+.contact::after {
+  position: absolute;
+  z-index: 0;
+  top: -8rem;
+  right: -5rem;
+  width: min(34vw, 26rem);
+  aspect-ratio: 1;
+  border: 1px solid rgb(91 32 232 / 6%);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.contact::after {
+  top: -6rem;
+  right: -3rem;
+  border-color: rgb(91 32 232 / 4%);
+}
+
+.contactInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--color-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.email {
+  display: inline-block;
+  border-radius: 0.45rem;
+  color: var(--color-ink);
+  font-size: clamp(1.65rem, 4vw, 2.6rem);
+  font-weight: 580;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  padding: 0.12rem 0.3rem;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.email:hover {
+  background: var(--color-purple-hover);
+  color: var(--color-accent-strong);
+}
+
+.email:focus-visible {
+  outline-color: var(--color-accent);
+}
+
+.contactMark {
+  display: block;
+  width: 2.75rem;
+  height: 1px;
+  margin: 1.5rem auto 0;
+  background: rgb(91 32 232 / 22%);
+}
+
+.bottom {
+  border-top: 1px solid rgb(91 32 232 / 10%);
+  padding-block: 1.5rem 1.75rem;
+}
+
+.bottomInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+  text-align: center;
+}
+
+.brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.logo {
+  display: block;
+  width: 5rem;
+  height: auto;
+}
+
+.copyright {
+  color: var(--color-muted);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .email {
+    transition: none;
+  }
+}

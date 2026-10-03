@@ -23,7 +23,7 @@
 
 .logo {
   display: block;
-  width: 7.25rem;
+  width: 6.85rem;
   height: auto;
 }
 
@@ -36,21 +36,23 @@
 
 .navigationLink,
 .mobileNavigationLink {
+  border-radius: 0.625rem;
   color: var(--color-muted);
   font-size: 0.9375rem;
   font-weight: 550;
   text-decoration: none;
-  transition: color 160ms ease;
+  transition: color 200ms ease, background-color 200ms ease;
 }
 
 .navigationLink {
   position: relative;
-  padding-block: 0.6rem;
+  padding: 0.55rem 0.75rem;
 }
 
 .navigationLink:hover,
 .mobileNavigationLink:hover {
-  color: var(--color-ink);
+  background: var(--color-purple-soft);
+  color: var(--color-accent-strong);
 }
 
 .activeLink {
@@ -59,6 +61,17 @@
 
 .navigationLink.activeLink {
   font-weight: 650;
+}
+
+.navigationLink:focus:not(:focus-visible),
+.mobileNavigationLink:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.navigationLink:focus-visible,
+.mobileNavigationLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .desktopCta {
@@ -78,11 +91,11 @@
   }
 
   .logo {
-    width: 6.75rem;
+    width: 6.45rem;
   }
 
   .desktopNavigation,
-  .desktopCta {
+  .inner > .desktopCta {
     display: none;
   }
 
@@ -101,6 +114,7 @@
 
   .menuButton:hover {
     border-color: var(--color-accent);
+    background: var(--color-purple-soft);
     color: var(--color-accent-strong);
   }
 
@@ -132,12 +146,11 @@
   }
 
   .mobileNavigationLink {
-    border-radius: var(--radius-control);
-    padding: 0.75rem 0.625rem;
+    padding: 0.7rem 0.75rem;
   }
 
   .mobileNavigationLink.activeLink {
-    background: var(--color-purple-soft);
+    font-weight: 650;
   }
 
   .mobileCta {

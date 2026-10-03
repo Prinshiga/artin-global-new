@@ -62,7 +62,6 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Replace this placeholder with the confirmed contact destination when available. */}
         <Link className={`button button-primary ${styles.desktopCta}`} href="#contact">
           Talk to us
         </Link>

@@ -1,0 +1,158 @@
+.hero {
+  overflow: hidden;
+  background: var(--color-white);
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+}
+
+.heroCopy { max-width: 42rem; }
+.eyebrow,
+.stageLabel {
+  margin: 0 0 1rem;
+  color: var(--color-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heroHeading {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(2.75rem, 5.1vw, 4.25rem);
+  font-weight: 630;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.heroHeading span { color: var(--color-accent); }
+.heroDescription {
+  max-width: 39rem;
+  margin: 1.375rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.8;
+}
+
+.heroVisual { width: 100%; justify-self: end; }
+.visualFrame {
+  position: relative;
+  display: grid;
+  width: 100%;
+  place-items: center;
+  isolation: isolate;
+}
+
+.heroVisual .visualFrame {
+  max-width: 37rem;
+  aspect-ratio: 1.22 / 1;
+  justify-self: end;
+}
+
+.heroArtwork,
+.stageArtwork { display: block; width: 100%; height: auto; overflow: visible; }
+.heroArtwork { max-height: 100%; }
+.stageVisual { width: 100%; max-width: 30rem; justify-self: end; }
+.stageVisual .visualFrame {
+  aspect-ratio: 1.48 / 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background:
+    radial-gradient(ellipse at 50% 48%, rgb(243 238 255 / 52%), transparent 61%),
+    var(--color-surface);
+}
+
+.stageArtwork { width: 96%; max-height: 94%; }
+.stageArtwork rect,
+.stageArtwork circle { vector-effect: non-scaling-stroke; }
+.connection { stroke: #d9c8ff; stroke-width: 1.5; stroke-dasharray: 5 7; }
+.roadmapPath { stroke: #c8b1ff; stroke-width: 2; stroke-dasharray: 5 6; }
+
+.journey { background: var(--color-white); padding-bottom: var(--space-section); }
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 7rem);
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+.stage + .stage { border-top: 1px solid var(--color-border); }
+.stage:nth-child(even) .stageCopy { order: 2; }
+.stage:nth-child(even) .stageVisual { order: 1; justify-self: start; }
+.stageCopy { max-width: 37rem; }
+.stageLabel { margin-bottom: 0.75rem; }
+.stageHeading {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: 620;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.stageDescription {
+  max-width: 35rem;
+  margin: 1rem 0 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Animations stay dormant until the illustration has entered the viewport. */
+.visualFrame[data-in-view="true"] .floatSlow { animation: float-soft 7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.visualFrame[data-in-view="true"] .nodeFloatOne { animation: float-one 6.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.visualFrame[data-in-view="true"] .nodeFloatTwo { animation: float-two 7.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.visualFrame[data-in-view="true"] .nodeFloatThree { animation: float-three 8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.visualFrame[data-in-view="true"] .analysisPulse { animation: pulse-soft 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.visualFrame[data-in-view="true"] .dataDrift { animation: drift-in 6s ease-in-out infinite alternate; }
+.visualFrame[data-in-view="true"] .dataDriftReverse { animation: drift-reverse 7s ease-in-out infinite alternate; }
+.visualFrame[data-in-view="true"] .strategyCardFloat { animation: card-float 7.5s ease-in-out infinite; }
+.visualFrame[data-in-view="true"] .progressArc { animation: draw-progress 2.2s cubic-bezier(.2,.7,.2,1) both; transform: rotate(-90deg); transform-origin: 108px 121px; stroke-dasharray: 78 126; stroke-dashoffset: 38; }
+.visualFrame[data-in-view="true"] .trendLine { stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw-line 2.8s ease-out .3s forwards; }
+.visualFrame[data-in-view="true"] .roadmapPath { stroke-dasharray: 250; stroke-dashoffset: 250; animation: draw-line 2.6s ease-out .25s forwards; }
+
+@keyframes float-soft { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-3px) scale(1.01); } }
+@keyframes float-one { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes float-two { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+@keyframes float-three { 0%, 100% { transform: translate(0); } 50% { transform: translate(3px, -2px); } }
+@keyframes pulse-soft { 0%, 100% { opacity: .9; } 50% { opacity: 1; } }
+@keyframes drift-in { from { transform: translate(-6px, 5px); opacity: .35; } to { transform: translate(5px, -5px); opacity: .9; } }
+@keyframes drift-reverse { from { transform: translate(5px, -3px); opacity: .4; } to { transform: translate(-5px, 4px); opacity: .85; } }
+@keyframes card-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes draw-line { to { stroke-dashoffset: 0; } }
+@keyframes draw-progress { from { stroke-dashoffset: 126; } to { stroke-dashoffset: 38; } }
+
+@media (max-width: 900px) {
+  .heroGrid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 2rem; }
+  .heroHeading { font-size: clamp(2.5rem, 5.2vw, 3.5rem); }
+  .stage { gap: 2.5rem; }
+}
+
+@media (max-width: 680px) {
+  .hero { padding-block: 3.5rem 4rem; }
+  .heroGrid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .heroHeading { font-size: clamp(2.5rem, 10vw, 3.25rem); }
+  .heroVisual .visualFrame { max-width: none; aspect-ratio: 1.3 / 1; }
+  .stage {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-block: 2.5rem;
+  }
+  .stage:nth-child(even) .stageCopy,
+  .stage:nth-child(even) .stageVisual { order: initial; }
+  .stageVisual,
+  .stage:nth-child(even) .stageVisual { max-width: none; }
+  .stageVisual .visualFrame { aspect-ratio: 1.55 / 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visualFrame[data-in-view="true"] * { animation: none !important; }
+}
